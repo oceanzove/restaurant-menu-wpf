@@ -1,0 +1,167 @@
+﻿<Page x:Class="RestaurantMenu.View.Pages.RecipeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RestaurantMenu.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RecipeView">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Margin="15" BorderThickness="1" BorderBrush="Black">
+            <ListView HorizontalContentAlignment="Stretch" Name="lvIngridients" ItemsSource="{Binding Ingredients}" SelectionChanged="lvIngridients_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1">
+                            <TextBlock Margin="5">
+                                <Run FontWeight="Bold">Название: </Run>
+                                <Run Text="{Binding name}"/>
+                                <LineBreak/>
+                                <Run FontWeight="Bold">Белки: </Run>
+                                <Run Text="{Binding protein}"/>
+                                <LineBreak/>
+                                <Run FontWeight="Bold">Жиры: </Run>
+                                <Run Text="{Binding fat}"/>
+                                <LineBreak/>
+                                <Run FontWeight="Bold">Углеводы: </Run>
+                                <Run Text="{Binding carbohydrate}"/>
+                            </TextBlock>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+        <Border Grid.Column="1" Margin="0 15">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Button Background="Transparent" Padding="0 20" Margin="0 10"
+                        Name="bOutMenu" Click="bOutMenu_Click" IsEnabled="False">
+                    ←
+                </Button>
+                <Button Background="Transparent" Padding="0 20" Margin="0 10"
+                        Name="bInMenu" Click="bInMenu_Click" IsEnabled="False">
+                    →
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="2" Margin="15" BorderThickness="1" BorderBrush="Black">
+            <ListView HorizontalContentAlignment="Stretch" Name="lvSelectedIngridients" ItemsSource="{Binding SelectedIngredients}" SelectionChanged="lvSelectedIngridients_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1">
+                            <TextBlock Margin="5">
+                                <Run FontWeight="Bold">Название: </Run>
+                                <Run Text="{Binding name}"/>
+                                <LineBreak/>
+                                <Run FontWeight="Bold">Белки: </Run>
+                                <Run Text="{Binding protein}"/>
+                                <LineBreak/>
+                                <Run FontWeight="Bold">Жиры: </Run>
+                                <Run Text="{Binding fat}"/>
+                                <LineBreak/>
+                                <Run FontWeight="Bold">Углеводы: </Run>
+                                <Run Text="{Binding carbohydrate}"/>
+                            </TextBlock>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+        <Border Grid.Column="2" Grid.Row="1" Margin="15 5" BorderThickness="1" BorderBrush="Black" IsEnabled="False" Name="bWeightIngridient">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Label FontWeight="Bold">Вес: </Label>
+                <TextBox Grid.Column="1" BorderThickness="0" Name="tbWeightIngridient" TextChanged="tbWeightIngridient_TextChanged" VerticalContentAlignment="Center">
+
+                </TextBox>
+            </Grid>
+        </Border>
+
+        <!--Информация о рецепте-->
+        <Border Grid.Column="3" Margin="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <!--Название блюда-->
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.45*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label FontWeight="Bold">Название:</Label>
+                    <TextBox Grid.Column="1" BorderThickness="0" Name="tbRecipeName" VerticalContentAlignment="Center" Text="{Binding Menu.name}" TextChanged="tbRecipeName_TextChanged"/>
+                </Grid>
+               <!--Информация о блюде-->
+                <Border Grid.Row="1" Margin="20" BorderThickness="2" BorderBrush="Black" CornerRadius="15">  
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0">
+                            <Run FontWeight="Bold" Text="Вес: "/>
+                            <Run Name="rInfoWeight" Text="{Binding Weight}"/>
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="1">
+                            <Run FontWeight="Bold" Text="Ккал: "/>
+                            <Run Name="rInfoKcal" Text="{Binding Kcal}"/>
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="2">
+                            <Run FontWeight="Bold" Text="Белок: "/>
+                            <Run Name="rInfoProtein" Text="{Binding Protein}"/>
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="3">
+                            <Run FontWeight="Bold" Text="Жиры: "/>
+                            <Run Name="rInfoFat" Text="{Binding Fat}"/>
+                        </TextBlock>
+
+                        <TextBlock Grid.Row="4">
+                            <Run FontWeight="Bold" Text="Углеводы: "/>
+                            <Run Name="rInfoCarbohydrate" Text="{Binding Carbohydrate}"/>
+                        </TextBlock>
+                        
+                    </Grid>
+                </Border>
+                
+            </Grid>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="1" BorderThickness="2" BorderBrush="Green" Margin="15 5">
+            <Button Background="Transparent" BorderThickness="0" Foreground="Green" Name="bSaveRecipe" Click="SaveRecipe_Click">
+                Сохранить
+            </Button>
+        </Border>
+
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="LightBlue" Margin="15 5">
+            <Button Background="Transparent" BorderThickness="0" Foreground="LightBlue" Click="GoToBack_Click">
+                Назад
+            </Button>
+        </Border>
+    </Grid>
+</Page>

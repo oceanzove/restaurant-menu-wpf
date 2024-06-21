@@ -145,11 +145,7 @@
                 </Border>
             </Grid>
         </Border>
-        <Border Grid.Row="1" BorderThickness="2" BorderBrush="LightBlue" Margin="15 5">
-            <Button Background="Transparent" BorderThickness="0" Foreground="LightBlue" Click="GoToBack_Click">
-                Назад
-            </Button>
-        </Border>
+        
 
         <!--Взаимойдествие с продуктом-->
         <Grid Grid.Row="1" Grid.Column="1">
@@ -173,5 +169,10 @@
             </Border>
         </Grid>
         
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="LightBlue" Margin="15 5">
+            <Button Background="Transparent" BorderThickness="0" Foreground="LightBlue" Click="GoToBack_Click">
+                Назад
+            </Button>
+        </Border>
     </Grid>
 </Page>

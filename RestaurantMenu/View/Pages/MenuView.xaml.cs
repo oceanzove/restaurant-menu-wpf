@@ -38,5 +38,11 @@ namespace RestaurantMenu.View.Pages
             NavigationService.Navigate(ViewManager.IngredientView);
         }
 
+        public void GoToCreateRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            var recipeView = new RecipeView(database);
+            NavigationService.Navigate(recipeView);
+        }
+
     }
 }

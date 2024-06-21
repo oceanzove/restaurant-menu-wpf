@@ -14,6 +14,7 @@ namespace RestaurantMenu.View
 
         private static MenuView menuView;
         private static IngredientView ingredientView;
+        private static RecipeView recipeView;
 
 
         private static Database.RestaurantEntities Database
@@ -56,7 +57,6 @@ namespace RestaurantMenu.View
                 return ingredientView;
             }
         }
-
-
+              
     }
 }

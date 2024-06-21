@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MenuView">
     <Grid Background="White">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0.2*"/>
@@ -44,7 +45,7 @@
                     </Button>
                 </Border>
                 <Border Height="30" BorderThickness="2" BorderBrush="Orange" Margin="5">
-                    <Button Background="Transparent" BorderThickness="0" Foreground="Orange" >
+                    <Button Background="Transparent" BorderThickness="0" Foreground="Orange" Click="GoToCreateRecipe_Click">
                         Создать
                     </Button>
                 </Border>

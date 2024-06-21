@@ -64,11 +64,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Middleware\CaloriesCalculator.cs" />
     <Compile Include="View\Pages\IngredientView.xaml.cs">
       <DependentUpon>IngredientView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\RecipeView.xaml.cs">
+      <DependentUpon>RecipeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewManager.cs" />
     <Page Include="MainWindow.xaml">
@@ -88,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\RecipeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
