@@ -1,0 +1,177 @@
+﻿<Page x:Class="RestaurantMenu.View.Pages.IngredientView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RestaurantMenu.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="IngredientView">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--Лист ингридиентов-->
+        <Border Margin="15" BorderThickness="1" BorderBrush="Black">
+            <ListView HorizontalContentAlignment="Stretch" Name="lvIngridients" ItemsSource="{Binding Ingredients}" SelectionChanged="lvIngridients_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1">
+                        <TextBlock Margin="5">
+                            <Run FontWeight="Bold">Название: </Run>
+                            <Run Text="{Binding name}"/>
+                            <LineBreak/>
+                            <Run FontWeight="Bold">Белки: </Run>
+                            <Run Text="{Binding protein}"/>
+                            <LineBreak/>
+                            <Run FontWeight="Bold">Жиры: </Run>
+                            <Run Text="{Binding fat}"/>
+                            <LineBreak/>
+                            <Run FontWeight="Bold">Углеводы: </Run>
+                            <Run Text="{Binding carbohydrate}"/>
+                            
+                        </TextBlock>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+        <Border Grid.Row="0" Grid.Column="1" Margin="15" BorderThickness="1" BorderBrush="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Name="bIngridientEdit" Grid.Row="0" Margin="15" BorderThickness="1" BorderBrush="Black" IsEnabled="False">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                            <Label>Название: </Label>
+                            <TextBox Name="tbEditName"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                            <Label>Белок:</Label>
+                            <TextBox Name="tbEditProtein"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+                            <Label>Жиры:</Label>
+                            <TextBox Name="tbEditFat"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                            <Label>Углеводы:</Label>
+                            <TextBox Name="tbEditCarbohydrate"></TextBox>
+                        </StackPanel>
+
+                        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Border Grid.Row="0" Grid.Column="0">
+                                <Button Name="bSaveEditIngridient" Click="SaveEditIngridient_Click">Сохранить</Button>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1">
+                                <Button>Удалить</Button>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Button Name="bCancelEditIngridient" Click="CancelEditIngridient_Click">Отменить</Button>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border Name="bIngridientCreate" Grid.Row="1" Margin="15" BorderThickness="1" BorderBrush="Black" IsEnabled="False">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                            <Label>Название:</Label>
+                            <TextBox Name="tbCreateName" TextChanged="tbCreateIngridient_TextChanged"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                            <Label>Белок:</Label>
+                            <TextBox Name="tbCreateProtein" TextChanged="tbCreateIngridient_TextChanged"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+                            <Label>Жиры:</Label>
+                            <TextBox Name="tbCreateFat" TextChanged="tbCreateIngridient_TextChanged"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                            <Label>Углеводы:</Label>
+                            <TextBox Name="tbCreateCarbohydrate" TextChanged="tbCreateIngridient_TextChanged"></TextBox>
+                        </StackPanel>
+
+                        <Border Grid.Row="1" Grid.Column="1">
+                            <Button Name="bCancelNewIngridient" Click="CanselIngridient_Click">Отменить</Button>
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="2">
+                            <Button Name="bSaveNewIngridient" Click="CreateIngridient_Click" IsEnabled="False">Сохранить</Button>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="LightBlue" Margin="15 5">
+            <Button Background="Transparent" BorderThickness="0" Foreground="LightBlue" Click="GoToBack_Click">
+                Назад
+            </Button>
+        </Border>
+
+        <!--Взаимойдествие с продуктом-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" BorderThickness="2" BorderBrush="Green" Margin="15 5">
+                <Button Name="bEditMode" Background="Transparent" BorderThickness="0" Foreground="Green"
+                        Click="EnableEditIngridient_Click"
+                        IsEnabled="False">
+                    Редактировать
+                </Button>
+            </Border>
+            <Border Grid.Column="1" BorderThickness="2" BorderBrush="LawnGreen" Margin="15 5">
+                <Button Background="Transparent" BorderThickness="0" Foreground="LawnGreen"
+                        Click="EnableCreateIngridient_Click"
+                        Name="bCreateMode">
+                    Создать
+                </Button>
+            </Border>
+        </Grid>
+        
+    </Grid>
+</Page>

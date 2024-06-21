@@ -1,0 +1,54 @@
+﻿<Page x:Class="RestaurantMenu.View.Pages.MenuView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RestaurantMenu.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuView">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Margin="15" BorderThickness="1" BorderBrush="Black">
+            
+        </Border>
+        <Border Grid.Column="1" Margin="15" BorderThickness="1" BorderBrush="Black">
+
+        </Border>
+        <Border Grid.Column="2" Margin="15" BorderThickness="1" BorderBrush="Black">
+
+        </Border>
+        
+        <!--Кнопки для работы с блюдами-->
+        <Border Grid.Column="3" Margin="15">
+            <StackPanel Orientation="Vertical">
+                <Border Height="30" BorderThickness="2" BorderBrush="LightBlue" Margin="5">
+                    <Button Background="Transparent" BorderThickness="0" Foreground="LightBlue" Click="GoToIngridient_Click">
+                        Ингредиенты
+                    </Button>
+                </Border>
+                <Border Height="30" BorderThickness="2" BorderBrush="Orange" Margin="5">
+                    <Button Background="Transparent" BorderThickness="0" Foreground="Orange">
+                        Редактировать
+                    </Button>
+                </Border>
+                <Border Height="30" BorderThickness="2" BorderBrush="Orange" Margin="5">
+                    <Button Background="Transparent" BorderThickness="0" Foreground="Orange">
+                        Удалить
+                    </Button>
+                </Border>
+                <Border Height="30" BorderThickness="2" BorderBrush="Orange" Margin="5">
+                    <Button Background="Transparent" BorderThickness="0" Foreground="Orange" >
+                        Создать
+                    </Button>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
